@@ -1,17 +1,19 @@
 import { Avatar } from "@/components/Avatar/Avatar";
 import { TweetButton } from "@/components/Buttons/TweetButton/TweetButton";
+import { saveInLocalStorage } from "@/utils/saveInLocalStorage";
 import { GiFallingStar } from "react-icons/gi";
 import { Timeline } from "./Timeline/Timeline";
 
-const user = {
-  tweet: "Tweet firts",
-  username: "@alinpr18",
-  name: "Ali Paredes",
-};
-
 export const Home = () => {
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const content = event.target.content.value;
+    const user = {
+      tweet: content,
+      username: "@alinpr18",
+      name: "Ali Paredes",
+    };
+    saveInLocalStorage("tweets", user);
   };
 
   return (
@@ -29,7 +31,6 @@ export const Home = () => {
             cols={10}
             rows={2}
             name="content"
-            onChange={handleSubmit}
           ></textarea>
           <div className="flex p-3">
             <div className="flex-1">
