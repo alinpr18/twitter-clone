@@ -1,7 +1,7 @@
 interface Props {
-  w: string;
-  h: string;
-  text: string;
+  w: string
+  h: string
+  text: string
 }
 
 export const TweetButton = ({ w, h, text }: Props) => {
@@ -13,5 +13,5 @@ export const TweetButton = ({ w, h, text }: Props) => {
         Tweet
       </span>
     </div>
-  );
-};
+  )
+}
